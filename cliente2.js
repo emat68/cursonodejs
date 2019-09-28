@@ -1,7 +1,15 @@
-var arrclientes2 = [];
+
+'use strict';
 
 class Direccion{
-    constructor(_calle,_numero,_comuna,_region){
+    constructor(){
+        this.calle = "";
+        this.numero = "";
+        this.comuna = "";
+        this.region = "";
+    }
+
+    setDireccionValores(_calle,_numero,_comuna,_region){
         this.calle = _calle;
         this.numero = _numero;
         this.comuna = _comuna;
@@ -9,19 +17,29 @@ class Direccion{
     }
 }
 
-class Cliente {
-    constructor(P_id,P_nombre,P_fecha,P_calle,P_numero,P_comuna,P_region)
+class Cliente extends Direccion{
+
+    constructor()
+    {   
+        super();
+
+        this.idcliente = "";
+        this.nombre = "";
+        this.fechacreacion = "";
+        this.direccion = "";
+    }
+
+    setClienteValores(P_id,P_nombre,P_fecha,P_calle,P_numero,P_comuna,P_region)
     {   
         this.idcliente = P_id;
         this.nombre = P_nombre;
         this.fechacreacion = P_fecha;
-        this.direccion = new Direccion(P_calle,P_numero ,P_comuna, P_region);
+        this.direccion = super.setDireccionValores(P_calle,P_numero ,P_comuna, P_region);
+        //var a = new Direccion();
+        //this.direccion = a.setDireccionValores(P_calle,P_numero ,P_comuna, P_region);
     }
-
-    arrclientes2.push(n1_cliente);
-
-    getnombres2() {
-        return arrclientes2;
+    getNombre(){
+        return this.nombre;
     }
 }
 
@@ -37,9 +55,7 @@ class Cliente {
 //   {
 //     return arrclientes2;
 // };
-
-
-module.exports = { 
-    cli2:getnombres2
+module.exports = {
+    cli45:Cliente,
+    dir45:Direccion
 }
-
