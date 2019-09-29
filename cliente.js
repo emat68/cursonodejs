@@ -52,7 +52,7 @@ var getnombres = function()
 var getsolonombre = function(){
     
     callobjetoCliente();
-    arrclientes.map(function(cliente){
+    arrclientes.map(function(cliente){   
     console.log(cliente.nombre);
     });
       

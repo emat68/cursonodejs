@@ -1,6 +1,6 @@
 
 'use strict';
-
+var arrClientes = [];
 class Direccion{
     constructor(){
         this.calle = "";
@@ -37,9 +37,16 @@ class Cliente extends Direccion{
         this.direccion = super.setDireccionValores(P_calle,P_numero ,P_comuna, P_region);
         //var a = new Direccion();
         //this.direccion = a.setDireccionValores(P_calle,P_numero ,P_comuna, P_region);
+        arrClientes.push(this);
     }
     getNombre(){
         return this.nombre;
+    }
+    getsolonombre(){
+        arrClientes.map(function(cliente){
+        //return cliente.nombre;
+        console.log(cliente.nombre);
+        })    
     }
 }
 
@@ -57,5 +64,5 @@ class Cliente extends Direccion{
 // };
 module.exports = {
     cli45:Cliente,
-    dir45:Direccion
+    arrCli:arrClientes
 }
