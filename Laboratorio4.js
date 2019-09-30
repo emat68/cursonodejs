@@ -1,7 +1,8 @@
-//var funciones = require('./curso3');
+
 'use strict';
-//var cliente = require('./cliente');
-var cliente3 = require("./cliente2")
+
+
+var cliente3 = require("./Lab4_clientes2");
 var datos = cliente3.arrCli;
 
 var nn = new cliente3.cli45();
@@ -14,8 +15,8 @@ var nn = new cliente3.cli45();
 nn.setClienteValores("4","Pedro","2019-09-27","Pepe Vila","187","La Reina","13");
 
 //Muestro los datos del arreglo
-console.log(datos);
+//console.log(datos);
 
-//Recupero solo los nombres
-var soloNombre1 = nn.getsolonombre();
-console.log(soloNombre1);
+// //Recupero solo los nombres
+// var soloNombre1 = nn.getsolonombre();
+// console.log(soloNombre1);

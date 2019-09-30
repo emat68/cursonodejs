@@ -1,6 +1,13 @@
 
 'use strict';
+var EventEmitter = require('events').EventEmitter;
+var emitter = new EventEmitter();
 var arrClientes = [];
+
+emitter.on('incorporaRegistro', function addRegistros(arg1) {
+        console.log(`Se incropora registro Args: ${arg1.nombre}`);
+})
+
 class Direccion{
     constructor(){
         this.calle = "";
@@ -35,9 +42,16 @@ class Cliente extends Direccion{
         this.nombre = P_nombre;
         this.fechacreacion = P_fecha;
         this.direccion = super.setDireccionValores(P_calle,P_numero ,P_comuna, P_region);
-        //var a = new Direccion();
-        //this.direccion = a.setDireccionValores(P_calle,P_numero ,P_comuna, P_region);
+
         arrClientes.push(this);
+        //Busco el registro dentro del arreglo, para validar que se ingreso
+        var found =  arrClientes.find(function(element) {
+            if(element.idcliente == P_id){
+                emitter.emit('incorporaRegistro',element); 
+            }
+          });
+        
+          //emitter.emit('incorporaRegistro',this);
     }
     getNombre(){
         return this.nombre;
