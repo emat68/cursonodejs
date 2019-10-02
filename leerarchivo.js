@@ -1,7 +1,8 @@
 const fs = require('fs');
 const path = require('path');
 
-let directorio = __dirname;
+//let directorio = __dirname;
+let directorio = 'c:/MINVU';
 
 console.log(directorio);
 console.log("Llamada por directorio");
