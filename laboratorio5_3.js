@@ -7,6 +7,9 @@ var connect = require('connect');
 let directorio = __dirname;
 let archivo = __filename;
 
+var app = connect();
+var servidor = http.createServer(app).listen(5000);
+
 function logit(req, res, next){
     util.log(util.format('Solicitud recibida: %s, %s', req.method, req.url));
     next();
@@ -33,13 +36,18 @@ function leerArchivos(req, res, next){
       next();
 }
 
-function salir(req, res, next) {
+function terminaproceso(req, res, next) {
     req.pipe(res);
-    console.log('echo!');
+    servidor.close(salidaMensaje); 
 } 
 
-var app = connect();
+function salidaMensaje(){
+    console.log('Salir de sistema!');
+}
+
+
 app.use(logit);
 app.use(leerArchivos);
-app.use(salir);
-http.createServer(app).listen(5000);
+app.use(terminaproceso);
+
+
